@@ -105,7 +105,7 @@ class LexicalURLFeature:
         return 'client' in self.url.lower()
     
     def has_admin_in_string(self):
-        return 'admin' in self.url.lower()
+        return 'admin' in self.url.lower() 
     
     def has_server_in_string(self):
         return 'server' in self.url.lower()
