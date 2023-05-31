@@ -22,37 +22,39 @@ datasets." from an article ??
   
   all features that I found in this article [article](https://sci-hub.st/https://link.springer.com/chapter/10.1007/978-3-319-46298-1_30)
   
-| Entropy Domain and Extension        |                     |
-|-------------------------------------|---------------------|
-| CharacterContinuityRate             |                     |
-| Features related with Length Ratio  |                     |
-|                                     | argPathRatio        |
-|                                     | argUrlRatio         |
-|                                     | argDomain           |
-|                                     | domainUrlRatio      |
-|                                     | pathUrlRatio        |
-|                                     | PathDomainRatio     |
-| Features related to count of Letter |                     |
-|                                     | Symbol Count Domain |
-|                                     | Domain token count  |
-|                                     | Query Digit Count   |
-|                                     | tld                 |
-| Number Rate of                      |                     |
-|                                     | Domain              |
-|                                     | DirectoryName       |
-|                                     | FileName            |
-|                                     | URL                 |
-|Features related to Length           |                     |
-|                                     | url Len             |
-|                                     | domain Len          |
-|                                     | file Name Len       |
-|                                     | Longest WordLength3 |
-|                                     |  Longest Path Token Length           |
-|                                     | avgpathtokenlen     |
-|ldl getArg                           |                     |
-|spcharUrl                            |                     |
+| Entropy Domain and Extension        |                     |  |
+|-------------------------------------|---------------------|--|
+| CharacterContinuityRate             |                     |  |
+| Features related with Length Ratio  |                     |  |
+|                                     | argPathRatio        |  |
+|                                     | argUrlRatio         |  |
+|                                     | argDomain           |  |
+|                                     | domainUrlRatio      |  |
+|                                     | pathUrlRatio        |  |
+|                                     | PathDomainRatio     |  |
+| Features related to count of Letter |                     |  |
+|                                     | Symbol Count Domain |  |
+|                                     | Domain token count  |  |
+|                                     | Query Digit Count   |  |
+|                                     | tld                 |  |
+| Number Rate of                      |                     |  |
+|                                     | Domain              |  |
+|                                     | DirectoryName       |  |
+|                                     | FileName            |  |
+|                                     | URL                 |  |
+|Features related to Length           |                     |  |
+|                                     | url Len             |  |
+|                                     | domain Len          |  |
+|                                     | file Name Len       |  |
+|                                     | Longest WordLength3 |  |
+|                                     | Longest Path Token Length           |  |
+|                                     | avgpathtokenlen     |  |
+|ldl getArg                           |                     |  |
+|spcharUrl                            |                     |  |
 
   _______________
+Continuity rate: We categorize the character type in the URL as letter, digit and symbol.
+Then we record the longest continuous length for each type.   [article](https://sci-hub.st/https://onlinelibrary.wiley.com/doi/abs/10.1111/coin.12422)
   
   #### 2. Host-Based Features:
   these are characteristics of the host-name properties of the URL. These provide information about the host of the webpage, for example, country of registration, domain name properties, open ports, named servers, connection speed, time to live from registration.
