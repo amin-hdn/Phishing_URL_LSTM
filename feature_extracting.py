@@ -116,6 +116,53 @@ class LexicalURLFeature:
     def get_tld(self): # https://miro.medium.com/v2/resize:fi
                                            #----
       return self.urlParse.netloc.split('.')[-1].split(':')[0]
+    
+    def CharacterContinuityRate(self):
+        if not self.url_host_is_ip():
+            Domain = self.urlParse.netloc.split('.')[1]
+            counter = dict()
+            counter['digit'] = 0
+            counter['alpha'] = 0
+            counter['symbol'] = 0
+            counter_digit__ = 0
+            counter_alpha__ = 0
+            counter_symbol__ = 0
+            was_alpha = False
+            was_digit = False
+            was_symbol = False
+
+            for c in Domain :
+
+                if c.isdigit() :
+                    if was_digit :
+                        counter_digit__ +=1
+                    else : 
+                        was_alpha, was_symbol, was_digit = False ,False, True
+                        counter_digit__  = 1
+                    counter['digit']= max(counter['digit'], counter_digit__)
+
+                        
+
+                    
+                elif c.isalpha() :
+                    if was_alpha :
+                        counter_alpha__ +=1
+                    else : 
+                        was_digit, was_symbol, was_alpha = False ,False, True
+                        counter_alpha__  = 1
+                    counter['alpha']= max(counter['alpha'], counter_alpha__)
+
+                else  :                  
+                    if was_symbol : 
+                        counter_symbol__ +=1
+                    else : 
+                        was_digit, was_alpha, was_symbol = False ,False, True
+                        counter_symbol__  = 1
+                    counter['symbol']= max(counter['symbol'], counter_symbol__)
+            return (counter['alpha']+ counter['digit']+ counter['symbol'])/len(Domain)
+        else :
+            return 4/15
+
 
 
 
@@ -147,7 +194,7 @@ class LexicalURLFeature:
     
 if __name__ == "__main__":
     start_time = time.time_ns()
-    URL_exemple = r"https://miro.medium.com/v2/resize:fit:1100/format:webp/1*laAcBkYX2GMMm7gJNGWwWQ.png"
+    URL_exemple = r"https://miro.abc123@_8at.com/v2/resize:fit:1100/format:webp/1*laAcBkYX2GMMm7gJNGWwWQ.png"
     object_ = LexicalURLFeature(URL_exemple)
     # print("######################  url_host_is_ip ##################################")
     # print(object_.url_host_is_ip())
@@ -156,5 +203,6 @@ if __name__ == "__main__":
     # print("######################  url_path_length ##################################")
     # print(object_.url_path_length())
     # print("######################  url_scheme ##################################")
-    print(object_.number_of_periods())
+    print(object_.urlParse.netloc)
+    print(object_.CharacterContinuityRate())
     print("--- %s seconds ---"  % (time.time_ns() - start_time))
