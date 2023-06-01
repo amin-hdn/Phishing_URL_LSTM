@@ -184,7 +184,7 @@ class LexicalURLFeature:
         return path_ / URL_
     
     def  Query_Digit_Count(self):# Number of digits in the query part of the URL.
-        digits = [i for i in self.urlParse.query if i.isdigit()]
+        digits = [i for i in self.urlParse.query if i.isdigit()] #1
         return len(digits)
 
 
