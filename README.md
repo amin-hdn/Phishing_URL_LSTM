@@ -58,6 +58,10 @@ Then we record the longest continuous length for each type.   [article](https://
   
   #### 2. Host-Based Features:
   these are characteristics of the host-name properties of the URL. These provide information about the host of the webpage, for example, country of registration, domain name properties, open ports, named servers, connection speed, time to live from registration.
+  
+    ![alt text](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*LVgaeM48ny2kr36FMIxlBg.png)
+    
+    
   _______________
   
   #### 3. Content Features: (optional)
