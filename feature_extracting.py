@@ -93,8 +93,12 @@ class LexicalURLFeature:
 
 
     def number_of_periods(self):
-        periods = [i for i in self.urlParse.path if i == '.'] ## ??
+        periods = [i for i in self.urlParse.path if i == '.'] 
         return len(periods)
+    
+    def number_of_dots(self):
+        dots = [i for i in self.url if i == '.'] ## ??
+        return len(dots)
     
 
     # def number_of_periods(self):
@@ -163,6 +167,25 @@ class LexicalURLFeature:
         else :
             return 4/15
 
+
+    def domain_token_count(self):
+        token_count= self.url.count('/') - 2
+        return token_count
+
+    def Path_Domain_ratio(self):
+        path_ = len(self.urlParse.path)
+        domain_ = len(self.urlParse.netloc)
+        return path_ / domain_
+    
+
+    def Path_URL_ratio(self):
+        path_ = len(self.urlParse.path)
+        URL_ = len(self.url)
+        return path_ / URL_
+    
+    def  Query_Digit_Count(self):# Number of digits in the query part of the URL.
+        digits = [i for i in self.urlParse.query if i.isdigit()]
+        return len(digits)
 
 
 
