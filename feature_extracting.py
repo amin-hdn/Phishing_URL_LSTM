@@ -187,6 +187,24 @@ class LexicalURLFeature:
         digits = [i for i in self.urlParse.query if i.isdigit()]
         return len(digits)
 
+    def Longest_Path_token(self):
+        Path_ = self.urlParse.path
+        lengths_ = list()
+        counter = 0
+        for c in Path_ :
+            
+            if c == '/': 
+                lengths_.append(counter)
+                counter = 0
+            else: counter += 1
+            
+        return max(lengths_)
+    
+    def Symbol_Count_Domain(self):  #in "://.:/?=,;()]+"
+        counter = 0  
+        for c in self.url:
+            if c in "://.:/?=,;()]+" : counter += 1
+        return counter
 
 
 ############# Calculate the tld's uses by benign and Malicious URLS , to find which tld more used by malicious URLS
