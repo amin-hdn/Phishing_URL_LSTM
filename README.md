@@ -1,4 +1,4 @@
-# Salam
+# Project desription
 In this repo you will find a classification model based on LSTM units. This model is for phishing URL detection that resulted in an  accuracy of 87%.
 
 
